@@ -53,11 +53,7 @@ public class Cadastrar extends AppCompatActivity {
         //inserindo Dado no FireBase lista de medicamento(conjunto) de chaves e valores .
         databaseReference
                 .child("lista de medicamento")
-                .child(uuid)
-                .child(nome)
-                .child(bula)
-                .child(observacao)
-                .setValue(editTextNome);
+                .setValue("TESTE1");
 
         /*editTextNome.setText("");
         editTextBula.setText("");

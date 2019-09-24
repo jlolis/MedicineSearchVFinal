@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ChamarCadastro(View view){
-        // fazer intent activity_cadastrar
-    }
+        Intent intent = new Intent(this, Cadastrar.class);
+        startActivity(intent);    }
 
 }
