@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.joaoelolis.medicinesearchv2.modelos.Medicamento;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -40,20 +41,23 @@ public class Cadastrar extends AppCompatActivity {
 
     public void salvarDado(View view){
 
+
         editTextNome = findViewById(R.id.edtCadastraNome);
         editTextBula = findViewById(R.id.edtBula);
         editTextObservacoes = findViewById(R.id.edtObservacao);
 
-        String uuid = UUID.randomUUID().toString();//Gerando um numero aleatorio.
+        Medicamento medicamento = new Medicamento(editTextNome.getText().toString(),
+                editTextBula.getText().toString(),
+                editTextObservacoes.getText().toString());
 
-        String nome = editTextNome.getText().toString();
-        String bula = editTextBula.getText().toString();
-        String observacao = editTextObservacoes.getText().toString();
+
+        String uuid = UUID.randomUUID().toString();//Gerando um numero aleatorio.
 
         //inserindo Dado no FireBase lista de medicamento(conjunto) de chaves e valores .
         databaseReference
                 .child("lista de medicamento")
-                .setValue("TESTE1");
+                .child(uuid)
+                .setValue(medicamento);
 
         /*editTextNome.setText("");
         editTextBula.setText("");
