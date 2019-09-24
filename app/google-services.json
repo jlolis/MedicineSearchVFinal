@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "483694875353",
+    "firebase_url": "https://medicinesearchv2.firebaseio.com",
+    "project_id": "medicinesearchv2",
+    "storage_bucket": "medicinesearchv2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483694875353:android:91c1d0082e55fd1b5ee4c8",
+        "android_client_info": {
+          "package_name": "com.example.joaoelolis.medicinesearchv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483694875353-4l4et0s3s67dvntmq4fveg96pcumn4vj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.joaoelolis.medicinesearchv2",
+            "certificate_hash": "6d1c005ec0b37f215b3fc626373a81629bac4c76"
+          }
+        },
+        {
+          "client_id": "483694875353-cbucvc9vdr4rbq69knhocvbm2683kpgo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJoh5j1rCI5jpUGLyb3NVKPxAC75VqKnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483694875353-cbucvc9vdr4rbq69knhocvbm2683kpgo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
