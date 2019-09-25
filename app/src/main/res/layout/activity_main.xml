@@ -11,6 +11,7 @@
         android:layout_width="105dp"
         android:layout_height="100dp"
         android:layout_marginTop="178dp"
+        android:onClick="ChamarConsulta"
         app:layout_constraintEnd_toStartOf="@+id/btnCadastrar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

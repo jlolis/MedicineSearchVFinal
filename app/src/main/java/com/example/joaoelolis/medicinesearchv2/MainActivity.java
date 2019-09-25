@@ -72,4 +72,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Cadastrar.class);
         startActivity(intent);    }
 
+    public void ChamarConsulta(View view){
+        Intent intent = new Intent(this, ConsultaActivity.class);
+        startActivity(intent);    }
+
 }
