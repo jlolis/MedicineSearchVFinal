@@ -30,6 +30,8 @@ public class Medicamento {
         this.observacao = observacao;
     }
 
+    public Medicamento(){}
+
     public Medicamento(String nome, String bula, String observacao) {
         this.nome = nome;
         this.bula = bula;

@@ -32,12 +32,16 @@ public class ConsultaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
+
+        listView = findViewById(R.id.ListViewConsuta);
+
         conectarBanco();
         leituraBanco();
+
     }
 
     public void leituraBanco(){
-        databaseReference.child("tarefa").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("lista de medicamento").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 //contruir o listview com os dados do banco
