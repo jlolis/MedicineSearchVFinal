@@ -6,6 +6,8 @@ public class Medicamento {
     private String bula;
     private String observacao;
 
+    public Medicamento(){}
+
     public String getNome() {
         return nome;
     }
@@ -30,7 +32,7 @@ public class Medicamento {
         this.observacao = observacao;
     }
 
-    public Medicamento(){}
+
 
     public Medicamento(String nome, String bula, String observacao) {
         this.nome = nome;

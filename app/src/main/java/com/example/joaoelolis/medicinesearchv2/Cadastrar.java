@@ -65,16 +65,14 @@ public class Cadastrar extends AppCompatActivity {
         //inserindo Dado no FireBase lista de medicamento(conjunto) de chaves e valores .
         databaseReference
                 .child("lista de medicamento")
-                .child(uuid)
+                .child(medicamento.getNome())
                 .setValue(medicamento);
 
         /*editTextNome.setText("");
         editTextBula.setText("");
         editTextObservacoes.setText("");*/
 
-
         Toast.makeText(getApplicationContext(), "Cadastrado com sucesso", Toast.LENGTH_LONG).show();
-
 
         Intent intent = new Intent(this,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
