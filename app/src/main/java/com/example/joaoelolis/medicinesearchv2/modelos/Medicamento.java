@@ -13,7 +13,7 @@ public class Medicamento {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = nome.toLowerCase();
     }
 
     public String getBula() {
@@ -21,7 +21,7 @@ public class Medicamento {
     }
 
     public void setBula(String bula) {
-        this.bula = bula;
+        this.bula = bula.toLowerCase();
     }
 
     public String getObservacao() {
@@ -29,14 +29,14 @@ public class Medicamento {
     }
 
     public void setObservacao(String observacao) {
-        this.observacao = observacao;
+        this.observacao = observacao.toLowerCase();
     }
 
 
 
     public Medicamento(String nome, String bula, String observacao) {
-        this.nome = nome;
-        this.bula = bula;
-        this.observacao = observacao;
+        this.nome = nome.toLowerCase();
+        this.bula = bula.toLowerCase();
+        this.observacao = observacao.toLowerCase();
     }
 }

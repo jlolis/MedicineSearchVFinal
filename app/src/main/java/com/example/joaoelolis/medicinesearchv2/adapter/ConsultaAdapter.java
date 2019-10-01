@@ -23,12 +23,12 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Consulta_Adapter extends ArrayAdapter<Medicamento> {
+public class ConsultaAdapter extends ArrayAdapter<Medicamento> {
 
     private Context context;
     private List<Medicamento> medicamentos;
 
-    public Consulta_Adapter(Context context, ArrayList<Medicamento> medicamentos){
+    public ConsultaAdapter(Context context, ArrayList<Medicamento> medicamentos){
         super(context,0,medicamentos);
         this.context = context;
         this.medicamentos = medicamentos;
@@ -50,9 +50,12 @@ public class Consulta_Adapter extends ArrayAdapter<Medicamento> {
         TextView textViewBula = listaItem.findViewById(R.id.txtBulaMedicamento);
         TextView textViewObs = listaItem.findViewById(R.id.txtObsMedicamento);
 
-        textViewNome.setText(medicamentoSelecionado.getNome());
-        textViewBula.setText(medicamentoSelecionado.getBula());
-        textViewObs.setText(medicamentoSelecionado.getObservacao());
+        textViewNome.setText(medicamentoSelecionado.getNome().substring(0,1).toUpperCase() +
+                medicamentoSelecionado.getNome().substring(1));
+        textViewBula.setText(medicamentoSelecionado.getBula().substring(0,1).toUpperCase() +
+                medicamentoSelecionado.getBula().substring(1));
+        textViewObs.setText(medicamentoSelecionado.getObservacao().substring(0,1).toUpperCase()+
+                medicamentoSelecionado.getObservacao().substring(1));
 
         return listaItem;
 

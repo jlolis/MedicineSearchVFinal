@@ -3,20 +3,19 @@ package com.example.joaoelolis.medicinesearchv2;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.example.joaoelolis.medicinesearchv2.adapter.Consulta_Adapter;
+import com.example.joaoelolis.medicinesearchv2.adapter.ConsultaAdapter;
 import com.example.joaoelolis.medicinesearchv2.modelos.Medicamento;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -43,6 +42,7 @@ public class ConsultaActivity extends AppCompatActivity {
 
         conectarBanco();
         leituraBanco();
+        pesquisaLista();
 
     }
 
@@ -58,7 +58,7 @@ public class ConsultaActivity extends AppCompatActivity {
                     medicamentos.add(medicamento);
                 }
 
-                arrayAdapter = new Consulta_Adapter(ConsultaActivity.this, (ArrayList<Medicamento>) medicamentos);
+                arrayAdapter = new ConsultaAdapter(ConsultaActivity.this, (ArrayList<Medicamento>) medicamentos);
                 listView.setAdapter(arrayAdapter);
             }
 
@@ -77,34 +77,51 @@ public class ConsultaActivity extends AppCompatActivity {
 
     }
 
-    public void chamarConsulta(View view){
+    public void pesquisaLista(){
 
-        listView.setAdapter(null);
-
-        databaseReference
-                .child("lista de medicamento")
-                .orderByChild("nome")
-                .startAt(editTextConsulta.getText().toString())
-                .endAt(editTextConsulta.getText().toString()+"\uf8ff")
-                .addValueEventListener(new ValueEventListener() {
+        EditText searchTo = (EditText)findViewById(R.id.editTextConsulta);
+        searchTo.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //contruir o listview com os dados do banco
-
-                medicamentos.clear();
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    Medicamento medicamento = snapshot.getValue(Medicamento.class);
-                    medicamentos.add(medicamento);
-                }
-
-                arrayAdapter = new Consulta_Adapter(ConsultaActivity.this, (ArrayList<Medicamento>) medicamentos);
-                listView.setAdapter(arrayAdapter);
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                listView.setAdapter(null);
+
+                databaseReference
+                        .child("lista de medicamento")
+                        .orderByChild("nome")
+                        .startAt(editTextConsulta.getText().toString().toLowerCase())
+                        .endAt(editTextConsulta.getText().toString().toLowerCase()+"\uf8ff")
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                //contruir o listview com os dados do banco
+
+                                medicamentos.clear();
+                                for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                    Medicamento medicamento = snapshot.getValue(Medicamento.class);
+                                    medicamentos.add(medicamento);
+                                }
+
+                                arrayAdapter = new ConsultaAdapter(ConsultaActivity.this, (ArrayList<Medicamento>) medicamentos);
+                                listView.setAdapter(arrayAdapter);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
 
             }
-        });
-    }
+        });}
+
 }

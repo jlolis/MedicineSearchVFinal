@@ -3,18 +3,12 @@ package com.example.joaoelolis.medicinesearchv2;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Filter;
 
-import com.example.joaoelolis.medicinesearchv2.adapter.Consulta_Adapter;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
     public void ChamarConsulta(View view){
         Intent intent = new Intent(this, ConsultaActivity.class);
         startActivity(intent);    }
-
 
 
 }
