@@ -21,7 +21,7 @@
         android:id="@+id/txtBulaMedicamento"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="TextView"
+        android:text='"Aqui será possível consultar todos os medicamentos e suas bulas"'
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="italic"
