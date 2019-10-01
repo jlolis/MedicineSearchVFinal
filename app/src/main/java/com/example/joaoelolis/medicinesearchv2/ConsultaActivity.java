@@ -5,9 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.joaoelolis.medicinesearchv2.adapter.ConsultaAdapter;
 import com.example.joaoelolis.medicinesearchv2.modelos.Medicamento;
@@ -31,6 +34,11 @@ public class ConsultaActivity extends AppCompatActivity {
     private ArrayAdapter<Medicamento> arrayAdapter;
     private Medicamento medicamentoSelecionado;
     private EditText editTextConsulta;
+    private TextView textViewBula;
+    private TextView textViewNomeMedicamento;
+    private TextView textViewObsMedicamento;
+    private Button btnBula;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +47,10 @@ public class ConsultaActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.ListViewConsuta);
         editTextConsulta = findViewById(R.id.editTextConsulta);
+        textViewNomeMedicamento = findViewById(R.id.txtNomeMedicamento);
+        textViewBula = findViewById(R.id.txtBulaMedicamento);
+        textViewObsMedicamento = findViewById(R.id.txtObsMedicamento);
+        btnBula = findViewById(R.id.btnBula);
 
         conectarBanco();
         leituraBanco();
@@ -99,7 +111,7 @@ public class ConsultaActivity extends AppCompatActivity {
                         .child("lista de medicamento")
                         .orderByChild("nome")
                         .startAt(editTextConsulta.getText().toString().toLowerCase())
-                        .endAt("\uf8ff"+editTextConsulta.getText().toString().toLowerCase())
+                        .endAt(editTextConsulta.getText().toString().toLowerCase()+"\uf8ff")
                         .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -122,5 +134,12 @@ public class ConsultaActivity extends AppCompatActivity {
                         });
             }
         });}
+
+    public void chamarBula(View view){
+        textViewBula.setVisibility(View.VISIBLE);
+        textViewNomeMedicamento.setVisibility(View.INVISIBLE);
+        textViewObsMedicamento.setVisibility(View.INVISIBLE);
+        btnBula.setVisibility(View.INVISIBLE);
+    }
 
 }

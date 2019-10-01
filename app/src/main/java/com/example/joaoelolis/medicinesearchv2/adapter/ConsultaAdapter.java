@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.TextView;
@@ -46,9 +47,35 @@ public class ConsultaAdapter extends ArrayAdapter<Medicamento> {
 
         Medicamento medicamentoSelecionado = medicamentos.get(position);
 
-        TextView textViewNome = listaItem.findViewById(R.id.txtNomeMedicamento);
-        TextView textViewBula = listaItem.findViewById(R.id.txtBulaMedicamento);
-        TextView textViewObs = listaItem.findViewById(R.id.txtObsMedicamento);
+        final Button btnBula = listaItem.findViewById(R.id.btnBula);
+        final Button btnVoltarBula = listaItem.findViewById(R.id.btnVoltarBula);
+        final TextView textViewNome = listaItem.findViewById(R.id.txtNomeMedicamento);
+        final TextView textViewBula = listaItem.findViewById(R.id.txtBulaMedicamento);
+        final TextView textViewObs = listaItem.findViewById(R.id.txtObsMedicamento);
+
+        btnBula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textViewBula.setVisibility(View.VISIBLE);
+                textViewNome.setVisibility(View.INVISIBLE);
+                textViewObs.setVisibility(View.INVISIBLE);
+                btnBula.setVisibility(View.INVISIBLE);
+                btnVoltarBula.setVisibility(View.VISIBLE);
+            }
+        });
+
+        btnVoltarBula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textViewBula.setVisibility(View.INVISIBLE);
+                textViewNome.setVisibility(View.VISIBLE);
+                textViewObs.setVisibility(View.VISIBLE);
+                btnBula.setVisibility(View.VISIBLE);
+                btnVoltarBula.setVisibility(View.INVISIBLE);
+            }
+        });
+
+
 
         textViewNome.setText(medicamentoSelecionado.getNome().substring(0,1).toUpperCase() +
                 medicamentoSelecionado.getNome().substring(1));
