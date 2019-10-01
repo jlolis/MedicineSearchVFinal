@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MedicineSearchV2</string>
+    <string name="app_name">MedicineSearch</string>
     <string name="consulta_medicamento">Consultar</string>
     <string name="btn_consulta_medicamento">Pesquisar</string>
     <string name="btn_salvar">Salvar</string>
@@ -7,7 +7,7 @@
     <string name="btn_cadastra_Medicamento">Cadastrar</string>
     <string name="txt_medicamento">LOGO</string>
     <string name="cadastra_nome">Digite o nome do medicamento</string>
-    <string name="digite_medicamento">CADASTRO DE MEDICAMENTO</string>
+    <string name="digite_medicamento">Medicamento:</string>
     <string name="observacao">Observações:</string>
     <string name="digite_observacao">Digite as observações</string>
     <string name="digite_bula">Digite a Bula</string>
