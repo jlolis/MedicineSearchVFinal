@@ -11,6 +11,7 @@
         android:layout_width="105dp"
         android:layout_height="100dp"
         android:layout_marginTop="178dp"
+        android:background="@android:drawable/ic_menu_search"
         android:onClick="ChamarConsulta"
         android:text="@string/consulta_medicamento"
         app:layout_constraintEnd_toStartOf="@+id/btnCadastrar"
@@ -22,22 +23,30 @@
         android:layout_width="105dp"
         android:layout_height="100dp"
         android:layout_marginTop="178dp"
+        android:background="@android:drawable/ic_menu_edit"
         android:onClick="ChamarCadastro"
         android:text="@string/btn_cadastra_Medicamento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnConsultar"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/txt_medicamento"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="246dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="348dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnConsultar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/Semtitulo" />
 
 </android.support.constraint.ConstraintLayout>
