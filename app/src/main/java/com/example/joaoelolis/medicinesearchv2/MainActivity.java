@@ -47,5 +47,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ConsultaActivity.class);
         startActivity(intent);    }
 
+    public void fechar(View view){
+        finish();
+    }
+
 
 }

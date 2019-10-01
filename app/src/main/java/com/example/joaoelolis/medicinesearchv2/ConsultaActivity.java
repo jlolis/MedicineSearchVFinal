@@ -99,7 +99,7 @@ public class ConsultaActivity extends AppCompatActivity {
                         .child("lista de medicamento")
                         .orderByChild("nome")
                         .startAt(editTextConsulta.getText().toString().toLowerCase())
-                        .endAt(editTextConsulta.getText().toString().toLowerCase()+"\uf8ff")
+                        .endAt("\uf8ff"+editTextConsulta.getText().toString().toLowerCase())
                         .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -120,7 +120,6 @@ public class ConsultaActivity extends AppCompatActivity {
 
                             }
                         });
-
             }
         });}
 

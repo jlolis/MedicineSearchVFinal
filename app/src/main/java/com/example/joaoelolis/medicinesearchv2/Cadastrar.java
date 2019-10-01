@@ -96,6 +96,9 @@ public class Cadastrar extends AppCompatActivity {
                             startActivity(intent);*/
                             finish();
                         } else {
+                            editTextNome.setText("");
+                            editTextBula.setText("");
+                            editTextObservacoes.setText("");
                             Toast.makeText(getApplicationContext(), "Medicamento já cadastrado", Toast.LENGTH_LONG).show();
                         }
                     }
