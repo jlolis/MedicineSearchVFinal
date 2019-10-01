@@ -1,6 +1,7 @@
 package com.example.joaoelolis.medicinesearchv2;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +11,14 @@ import android.widget.Toast;
 
 import com.example.joaoelolis.medicinesearchv2.modelos.Medicamento;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Cadastrar extends AppCompatActivity {
@@ -20,6 +26,7 @@ public class Cadastrar extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+    private List<Medicamento> medicamentos = new ArrayList<>();
     private EditText editTextNome;
     private EditText editTextBula;
     private EditText editTextObservacoes;
@@ -55,28 +62,49 @@ public class Cadastrar extends AppCompatActivity {
         editTextBula = findViewById(R.id.edtBula);
         editTextObservacoes = findViewById(R.id.edtObservacao);
 
-        Medicamento medicamento = new Medicamento(editTextNome.getText().toString(),
+        final Medicamento medicamento = new Medicamento(editTextNome.getText().toString(),
                 editTextBula.getText().toString(),
                 editTextObservacoes.getText().toString());
 
-
         String uuid = UUID.randomUUID().toString();//Gerando um numero aleatorio.
 
-        //inserindo Dado no FireBase lista de medicamento(conjunto) de chaves e valores .
         databaseReference
                 .child("lista de medicamento")
-                .child(uuid)
-                .setValue(medicamento);
+                .orderByChild("nome")
+                .equalTo(editTextNome.getText().toString())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        //contruir o listview com os dados do banco
 
-        /*editTextNome.setText("");
-        editTextBula.setText("");
-        editTextObservacoes.setText("");*/
+                        medicamentos.clear();
+                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                            Medicamento medicamento = snapshot.getValue(Medicamento.class);
+                            medicamentos.add(medicamento);
+                        }
+                        if (medicamentos.size() == 0) {
 
-        Toast.makeText(getApplicationContext(), "Cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                            databaseReference
+                                    .child("lista de medicamento")
+                                    .child(medicamento.getNome())
+                                    .setValue(medicamento);
 
-        Intent intent = new Intent(this,MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+                            Toast.makeText(getApplicationContext(), "Cadastrado com sucesso", Toast.LENGTH_LONG).show();
+
+                            /*Intent intent = new Intent(this, MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);*/
+                            finish();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Medicamento já cadastrado", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
     }
 
     public void ChamarMenuInicial(View view){
