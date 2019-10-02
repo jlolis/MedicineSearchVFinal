@@ -10,37 +10,11 @@
         android:id="@+id/imageView5"
         android:layout_width="98dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/btnCadastrar"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonWrite"
         app:srcCompat="@drawable/setaparacima" />
-
-    <Button
-        android:id="@+id/btnConsultar"
-        android:layout_width="105dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="250dp"
-        android:background="@android:drawable/ic_search_category_default"
-        android:backgroundTintMode="screen"
-        android:onClick="ChamarConsulta"
-        android:textAlignment="gravity"
-        app:layout_constraintEnd_toStartOf="@+id/btnCadastrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnCadastrar"
-        android:layout_width="105dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="250dp"
-        android:background="@android:drawable/ic_menu_edit"
-        android:backgroundTintMode="screen"
-        android:drawingCacheQuality="high"
-        android:onClick="ChamarCadastro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnConsultar"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -65,10 +39,10 @@
         android:id="@+id/imageView4"
         android:layout_width="98dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnConsultar"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonSearch"
         app:srcCompat="@drawable/setaparacima" />
 
     <TextView
@@ -79,7 +53,7 @@
         android:fontFamily="casual"
         android:text="Aqui será possível consultar todos os medicamentos e suas devidas bulas."
         android:textAlignment="center"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,11 +67,82 @@
         android:fontFamily="casual"
         android:text="Aqui será possível cadastrar os medicamentos e suas devidas bulas."
         android:textAlignment="center"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <ImageButton
+        android:id="@+id/imageButton_logout"
+        android:layout_width="57dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/fui_transparent"
+        android:onClick="logout"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:srcCompat="@drawable/logout" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSearch"
+        android:layout_width="105dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="250dp"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="ChamarConsulta"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonWrite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/search" />
+
+    <ImageButton
+        android:id="@+id/imageButtonWrite"
+        android:layout_width="105dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="250dp"
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="ChamarCadastro"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonSearch"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cadastro" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:onClick="ChamarConsulta"
+        android:text="@string/Consulta"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toStartOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonSearch"
+        tools:text="@string/Consulta" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:onClick="ChamarCadastro"
+        android:text="@string/Cadastro"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonWrite"
+        tools:text="@string/Cadastro" />
 
 
 </android.support.constraint.ConstraintLayout>
