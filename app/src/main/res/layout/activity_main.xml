@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -22,11 +22,9 @@
         android:layout_height="100dp"
         android:layout_marginTop="250dp"
         android:background="@android:drawable/ic_search_category_default"
-        android:backgroundTint="@color/colorPrimaryDark"
         android:backgroundTintMode="screen"
         android:onClick="ChamarConsulta"
-        android:text="@string/consulta_medicamento"
-        android:textAlignment="center"
+        android:textAlignment="gravity"
         app:layout_constraintEnd_toStartOf="@+id/btnCadastrar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,11 +35,9 @@
         android:layout_height="100dp"
         android:layout_marginTop="250dp"
         android:background="@android:drawable/ic_menu_edit"
-        android:backgroundTint="@color/colorPrimaryDark"
         android:backgroundTintMode="screen"
+        android:drawingCacheQuality="high"
         android:onClick="ChamarCadastro"
-        android:text="@string/btn_cadastra_Medicamento"
-        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnConsultar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,8 +54,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="420dp"
-        android:layout_height="0dp"
+        android:layout_width="468dp"
+        android:layout_height="55dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,8 +63,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +75,7 @@
         android:id="@+id/textView"
         android:layout_width="154dp"
         android:layout_height="115dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="casual"
         android:text="Aqui será possível consultar todos os medicamentos e suas devidas bulas."
         android:textAlignment="center"
@@ -93,7 +89,7 @@
         android:id="@+id/textView4"
         android:layout_width="154dp"
         android:layout_height="115dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="casual"
         android:text="Aqui será possível cadastrar os medicamentos e suas devidas bulas."
         android:textAlignment="center"
