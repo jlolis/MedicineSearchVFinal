@@ -90,6 +90,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonSearch"
+        style="@style/Widget.AppCompat.ImageButton"
         android:layout_width="105dp"
         android:layout_height="100dp"
         android:layout_marginTop="250dp"
