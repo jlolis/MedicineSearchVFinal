@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundodastelas"
     tools:context=".MainActivity">
 
     <ImageView
@@ -20,9 +21,9 @@
         android:id="@+id/imageView"
         android:layout_width="349dp"
         android:layout_height="165dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/fui_transparent"
+        android:layout_marginTop="76dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -56,6 +57,7 @@
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -70,6 +72,7 @@
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -95,7 +98,7 @@
         android:layout_width="105dp"
         android:layout_height="100dp"
         android:layout_marginTop="250dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@android:color/transparent"
         android:onClick="ChamarConsulta"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toStartOf="@+id/imageButtonWrite"
@@ -108,7 +111,7 @@
         android:layout_width="105dp"
         android:layout_height="100dp"
         android:layout_marginTop="250dp"
-        android:backgroundTint="@color/colorAccent"
+        android:backgroundTint="@android:color/transparent"
         android:onClick="ChamarCadastro"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,6 +129,7 @@
         android:text="@string/Consulta"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorAccent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonSearch"
@@ -141,6 +145,7 @@
         android:text="@string/Cadastro"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorAccent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonWrite"
