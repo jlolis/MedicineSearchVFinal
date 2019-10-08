@@ -62,17 +62,19 @@ public class Cadastrar extends AppCompatActivity {
         editTextBula = findViewById(R.id.edtBula);
         editTextObservacoes = findViewById(R.id.edtObservacao);
 
+
         final Medicamento medicamento = new Medicamento(editTextNome.getText().toString(),
                 editTextBula.getText().toString(),
                 editTextObservacoes.getText().toString());
+
 
         String uuid = UUID.randomUUID().toString();//Gerando um numero aleatorio.
 
         databaseReference
                 .child("lista de medicamento")
                 .orderByChild("nome")
-                .equalTo(editTextNome.getText().toString())
-                .addValueEventListener(new ValueEventListener() {
+                .equalTo(editTextNome.getText().toString().toLowerCase())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         //contruir o listview com os dados do banco
@@ -82,24 +84,31 @@ public class Cadastrar extends AppCompatActivity {
                             Medicamento medicamento = snapshot.getValue(Medicamento.class);
                             medicamentos.add(medicamento);
                         }
-                        if (medicamentos.size() == 0) {
+
+
+                        if (medicamentos.size() == 0 && !editTextNome.getText().toString().equals("")) {
 
                             databaseReference
                                     .child("lista de medicamento")
                                     .child(medicamento.getNome())
                                     .setValue(medicamento);
 
+                            editTextNome.setText("");
+                            editTextBula.setText("");
+                            editTextObservacoes.setText("");
                             Toast.makeText(getApplicationContext(), "Cadastrado com sucesso", Toast.LENGTH_LONG).show();
 
                             /*Intent intent = new Intent(this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);*/
-                            finish();
+
                         } else {
                             editTextNome.setText("");
                             editTextBula.setText("");
                             editTextObservacoes.setText("");
-                            Toast.makeText(getApplicationContext(), "Medicamento já cadastrado", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Medicamento não pode ser cadastrado", Toast.LENGTH_LONG).show();
+                            finish();
+
                         }
                     }
 

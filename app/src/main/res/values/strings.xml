@@ -6,7 +6,7 @@
     <string name="btn_cancelar">Cancelar</string>
     <string name="btn_cadastra_Medicamento">Cadastrar</string>
     <string name="txt_medicamento">LOGO</string>
-    <string name="cadastra_nome">Digite o nome do medicamento</string>
+    <string name="cadastra_nome">Nome do medicamento(Obrigatorio)</string>
     <string name="digite_medicamento">Medicamento:</string>
     <string name="observacao">Observações:</string>
     <string name="digite_observacao">Digite as observações</string>
