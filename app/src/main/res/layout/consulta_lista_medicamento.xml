@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/txtNomeMedicamento"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
@@ -46,10 +46,10 @@
 
     <Button
         android:id="@+id/btnBula"
-        android:layout_width="166dp"
-        android:layout_height="155dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="109dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bula"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
