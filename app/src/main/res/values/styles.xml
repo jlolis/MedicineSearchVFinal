@@ -12,8 +12,11 @@
 
     <style name="LoginThemes" parent="FirebaseUI">
     <item name="android:windowBackground">@drawable/loginbg</item>
+        <item name="android:textColor">@color/colorblack</item>
+        <item name="android:editTextColor">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
     </style>
 
 </resources>
