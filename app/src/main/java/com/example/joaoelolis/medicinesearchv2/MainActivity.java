@@ -9,19 +9,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.joaoelolis.medicinesearchv2.modelos.Medicamento;
+import com.example.joaoelolis.medicinesearchv2.modelos.Usuario;
 import com.firebase.ui.auth.AuthUI;
+import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     private SharedPreferences sharedPreferences;
+    private Usuario user = new Usuario();
     private EditText editTextNome;
     private EditText editTextBula;
     private EditText editTextObservacoes;
@@ -49,11 +55,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void criarLogin(){
+
         List<AuthUI.IdpConfig> providers = Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build(),
                 new AuthUI.IdpConfig.PhoneBuilder().build(),
                 new AuthUI.IdpConfig.GoogleBuilder().build()
         );
+
+
 
 
         startActivityForResult(
@@ -74,10 +83,18 @@ public class MainActivity extends AppCompatActivity {
 
         if(requestCode == 123 && resultCode == RESULT_OK){
 
+            IdpResponse response = IdpResponse.fromResultIntent(data);
+
             sharedPreferences = getSharedPreferences("LOGIN", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("LOGIN","true");
             editor.apply();
+
+            if(response.isNewUser()){
+                this.user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                this.user.setEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                databaseReference.child("usuarios").child(user.getId()).setValue(user);
+            }
 
         } else{
             finish();
