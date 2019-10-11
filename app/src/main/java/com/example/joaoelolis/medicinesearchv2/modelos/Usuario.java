@@ -6,12 +6,21 @@ public class Usuario {
 
     private String id;
     private String email;
-    private List<Medicamento> favoritos;
+    private String favoritos;
+    private List<Medicamento> favorita;
 
-    public Usuario(String id, String email, List<Medicamento> favoritos) {
+
+    public Usuario(String id, String email, String favoritos) {
         this.id = id;
         this.email = email;
         this.favoritos = favoritos;
+    }
+
+    public Usuario(String id, String email, String favoritos, List<Medicamento> favorita) {
+        this.id = id;
+        this.email = email;
+        this.favoritos = favoritos;
+        this.favorita = favorita;
     }
 
     public Usuario(){
@@ -39,11 +48,19 @@ public class Usuario {
         this.email = email;
     }
 
-    public List<Medicamento> getFavoritos() {
+    public String getFavoritos() {
         return favoritos;
     }
 
-    public void setFavoritos(List<Medicamento> favoritos) {
+    public void setFavoritos(String favoritos) {
         this.favoritos = favoritos;
+    }
+
+    public List<Medicamento> getFavorita() {
+        return favorita;
+    }
+
+    public void setFavorita(List<Medicamento> favorita) {
+        this.favorita = favorita;
     }
 }

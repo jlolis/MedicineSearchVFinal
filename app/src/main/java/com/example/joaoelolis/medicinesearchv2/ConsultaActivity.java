@@ -109,7 +109,7 @@ public class ConsultaActivity extends AppCompatActivity {
 
                 databaseReference
                         .child("lista de medicamento")
-                        .orderByChild("nome")
+                        .orderByChild("favoritos")
                         .startAt(editTextConsulta.getText().toString().toLowerCase())
                         .endAt(editTextConsulta.getText().toString().toLowerCase()+"\uf8ff")
                         .addValueEventListener(new ValueEventListener() {
@@ -134,6 +134,39 @@ public class ConsultaActivity extends AppCompatActivity {
                         });
             }
         });}
+
+        /*public void pesquisaFavoritos(View view) {
+
+            listView.setAdapter(null);
+
+            databaseReference
+                    .child("usuarios")
+                    .orderByChild("favoritos")
+                    .startAt(editTextConsulta.getText().toString().toLowerCase())
+                    .endAt(editTextConsulta.getText().toString().toLowerCase()+"\uf8ff")
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            //contruir o listview com os dados do banco
+
+                            medicamentos.clear();
+                            for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                Medicamento medicamento = snapshot.getValue(Medicamento.class);
+                                medicamentos.add(medicamento);
+                            }
+
+                            arrayAdapter = new ConsultaAdapter(ConsultaActivity.this, (ArrayList<Medicamento>) medicamentos);
+                            listView.setAdapter(arrayAdapter);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+        }*/
 
     public void chamarBula(View view){
         textViewBula.setVisibility(View.VISIBLE);

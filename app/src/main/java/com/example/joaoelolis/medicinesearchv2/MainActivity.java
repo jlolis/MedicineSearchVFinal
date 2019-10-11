@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             if(response.isNewUser()){
                 this.user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 this.user.setEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                this.user.setFavoritos("favorito");
                 databaseReference.child("usuarios").child(user.getId()).setValue(user);
             }
 
