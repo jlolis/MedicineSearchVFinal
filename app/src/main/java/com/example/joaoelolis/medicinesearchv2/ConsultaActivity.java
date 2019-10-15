@@ -175,4 +175,10 @@ public class ConsultaActivity extends AppCompatActivity {
         btnBula.setVisibility(View.INVISIBLE);
     }
 
+    public void chamarFavoritos(View view){
+
+
+
+    }
+
 }

@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextBula;
     private EditText editTextObservacoes;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         conectarBanco();
 
     }
-
 
     private void criarLogin(){
 
@@ -93,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
             if(response.isNewUser()){
                 this.user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
                 this.user.setEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                this.user.setFavoritos("favorito");
                 databaseReference.child("usuarios").child(user.getId()).setValue(user);
             }
 
@@ -109,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
         criarLogin();
     }
-
 
     private void conectarBanco(){
         FirebaseApp.initializeApp(MainActivity.this);
@@ -128,6 +123,5 @@ public class MainActivity extends AppCompatActivity {
     public void fechar(View view){
         finish();
     }
-
 
 }

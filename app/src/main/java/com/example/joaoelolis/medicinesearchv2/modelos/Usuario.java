@@ -1,5 +1,6 @@
 package com.example.joaoelolis.medicinesearchv2.modelos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
@@ -7,7 +8,7 @@ public class Usuario {
     private String id;
     private String email;
     private String favoritos;
-    private List<Medicamento> favorita;
+    private List<Medicamento> favorita = new ArrayList<Medicamento>();
 
 
     public Usuario(String id, String email, String favoritos) {
@@ -26,6 +27,8 @@ public class Usuario {
     public Usuario(){
 
     }
+
+
 
     public Usuario(String id, String email) {
         this.id = id;
